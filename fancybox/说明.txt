@@ -1,0 +1,46 @@
+以DEMO中的Demo2为例，讲解fancybox的使用。
+1、添加javascript引用和css文件的引用
+<link rel="stylesheet" type="text/css" href="fancybox.css" /> 
+<script type="text/javascript" src="js/jquery.js"></script> 
+<script type="text/javascript" src="js/fancybox.js"></script> 
+
+2、HTML
+<h4>图片集，支持键盘方向键</h4> 
+<p> 
+   <a rel="group" href="images/b1.jpg" title="图片标题"><img alt="" src="images/s1.gif" /></a> 
+   <a rel="group" href="images/b2.jpg" title="图片标题"><img alt="" src="images/s2.gif" /></a> 
+   <a rel="group" href="images/b3.jpg" title="蓝天白云绿草"><img alt="" src="images/s3.gif" /></a> 
+</p> 
+
+3、调用fancybox
+$(function(){ 
+    $("a[rel=group]").fancybox({ 
+        'titlePosition' : 'over', 
+        'cyclic'        : true, 
+        'titleFormat'    : function(title, currentArray, currentIndex, currentOpts) { 
+                    return '<span id="fancybox-title-over">' + (currentIndex + 1) + 
+ ' / ' + currentArray.length + (title.length ? '   ' + title : '') + '</span>'; 
+                } 
+    }); 
+}); 
+注意，fancybox的参数设置格式为：'key':'value'。titlePosition:设置图片标题的显示位置为图片上。cyclic：设置图片浏览方式为循环浏览。titleFormat：设置图片标题的格式，可以显示图片总数和当前图片顺序。
+
+fancybox插件主要参数和方法一览表
+参数/方法	描述	默认值
+基本
+width	设置弹出串口的宽度，当内容为swf,iframe或者单行文字时，应该将'autoDimensions' 设置为false	560
+height	设置弹出串口的高度，当内容为swf,iframe或者单行文字时，应该将'autoDimensions' 设置为false	340
+cyclic	是否循环显示，当内容为图片集时。	false
+centerOnScroll	弹出窗口始终浏览器居中。	false
+modal	是否使用模式窗口。当设置为true时，应该同时将：'hideOnOverlayClick'，'hideOnContentClick'，
+'enableEscapeButton'， 'showCloseButton' 设置为false，并将'overlayShow' 设置为true	false
+titlePosition	标题的位置,可以设置为'outside', 'inside' or 'over'	'outside'
+transitionIn, transitionOut	窗口显示的方式，可以设置为'elastic', 'fade' or 'none'	'fade'
+send	方法，向服务端发送裁剪图片的数据，以便服务端接收参数进行处理，
+e.g: cropzoom.send('process.php','POST',{id=1},function(r){ alert(r); });	 
+方法
+$.fancybox.showActivity	显示加载动画	 
+$.fancybox.hideActivity	隐藏加载动画	 
+$.fancybox.close	关闭窗口	 
+$.fancybox.resize	自动调整窗口的高度使之与内容相适应	 
+Centered	是否将选区居中，即显示在容器的中心。	 

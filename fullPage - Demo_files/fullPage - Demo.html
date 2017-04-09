@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://www.jiangweishan.com/demo/fullpage/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+    <title>fullPage - Demo</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="jquery.fullPage.css">
+</head>
+<!--[if lte IE 7]>      
+<body scroll="no"> 
+<![endif]-->
+<!--[if gt IE 7]><!--> 
+<body> 
+<!--<![endif]-->
+	<div id="article">
+		<div class="page section1 current" style="transition-timing-function: cubic-bezier(0, 0.93, 0.39, 0.98);">
+			<div class="contain">
+				<h3 class="title">这里是第一竖屏</h3>
+				<h4 class="titleEng">This is section1</h4>
+				<ul id="navBar">
+					<li></li>
+					<li></li>
+					<li></li>
+	 				<li></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="page section2" style="transition-timing-function: cubic-bezier(0, 0.93, 0.39, 0.98);">
+			<div class="contain">
+				<h3 class="title">这里是第二竖屏</h3>
+				<h4 class="titleEng">This is section2</h4>
+			</div>
+		</div>
+
+		<div class="page section3" style="transition-timing-function: cubic-bezier(0, 0.93, 0.39, 0.98);">
+			<div class="contain">
+				<h3 class="title">这里是第三竖屏</h3>
+				<h4 class="titleEng">This is section3</h4>
+			</div>
+		</div>
+
+		<div class="page section4 footer fp-auto-height" style="transition-timing-function: cubic-bezier(0, 0.93, 0.39, 0.98);">
+			<div class="contain footer-link">
+				<h3 class="title">这里是第四竖屏</h3>
+				<h4 class="titleEng">This is section4</h4>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src="fullPage.min.js"></script>
+<script type="text/javascript">	
+	var interval;
+	runSection = new FullPage({
+		id : 'article',                            // id of contain
+		slideTime : 800,                               // time of slide
+		effect : {                                     // slide effect
+			transform : {
+				translate : 'Y',					   // 'X'|'Y'|'XY'|'none'
+				scale : [0, 1],					   // [scalefrom, scaleto]
+				rotate : [0, 0]					   // [rotatefrom, rotateto]
+			},
+			opacity : [0, 1]                           // [opacityfrom, opacityto]
+		},                           
+		mode : 'touch,wheel',               // mode of fullpage
+		easing : [0, .93, .39, .98],
+		callback : function(index, thisPage) {     // callback when pageChange
+		   clearTimeout(interval);
+		}
+	});
+</script>
+</body>
+</html>

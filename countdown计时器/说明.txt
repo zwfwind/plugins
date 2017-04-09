@@ -1,0 +1,237 @@
+插件调用方式：
+
+     1.需要先加载countdown插件对应的css文件，也就几行代码而已，可以不用引入，自己手写一样啦
+
+复制代码
+ <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>jquery countdown倒计时插件</title>
+  <link rel="stylesheet" type="text/css" href="css/jquery.countdown-1.0.0.css"/>
+ </head>
+复制代码
+     css代码内容:
+
+复制代码
+* {
+ margin: 0;
+ padding: 0;
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ -ms-box-sizing: border-box;
+ -o-box-sizing: border-box;
+ box-sizing: border-box;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+ font: 24px/1.5 'Microsoft YaHei', arial, tahoma, '\5b8b\4f53', sans-serif;
+ font-weight: 700;
+ background: #efefef;
+ -webkit-text-size-adjust: 100%;
+ text-size-adjust: 100%;
+}
+
+#countdown {
+ width: 60%;
+ margin: 20% auto;
+ color: #ff4d4d;
+}
+
+.countdown-day,
+.countdown-hour,
+.countdown-minute,
+.countdown-second {
+ display: inline-block;
+ margin: 0 .5rem;
+ background: #ff3f0f;
+ font-size: 2rem;
+ font-weight: 700;
+ color: #fff;
+}
+复制代码
+     2.再加载js文件，在此之前得先引入jquery
+
+  <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript" src="js/jquery.countdown-1.0.0.min.js"></script>
+    3.然后定义一个显示时间的元素，初始化配置后就可以看到计时啦
+
+复制代码
+<body>
+  <div id="countdown"></div>
+
+  <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript" src="js/jquery.countdown-1.0.0.min.js"></script>
+  <script>
+   $('#countdown').countdown({
+    //活动开始时间 (可采用时间戳 或者 标准日期时间格式 "yyyy/MM/dd HH:mm:ss")
+    //优先采取元素的data-stime值(该值只能为时间戳格式)
+    startTime: '2016/6/11 17:54:00',//活动结束时间 (可采用时间戳 或者 标准日期时间格式 "yyyy/MM/dd HH:mm:ss")
+    //优先采取元素的data-etime值(该值只能为时间戳格式)         
+    endTime: '2016/6/11 17:55:00',
+    //活动开始前倒计时的修饰
+    //可自定义元素,例如"<span>距离活动开始倒计时还有:</span>"            
+    beforeStart: '距离活动开始倒计时还有:',
+    //活动进行中倒计时的修饰 
+    //可自定义元素,例如"<span>距离活动截止还有:</span>"  
+    beforeEnd: '距离活动截止还有:',
+    //活动结束后的修饰
+    //可自定义元素,例如"<span>活动已结束</span>"             
+    afterEnd: '亲，活动结束啦，请继续关注哦!',
+    //时间格式化(可采用"ddd:hh:mm:ss、 dd:hh:mm:ss、  hh:mm:ss、 mm:ss、 ss"等)                   
+    format: 'dd:hh:mm:ss',
+    //活动结束后的回调函数                    
+    callback: function() {
+     console.log('亲，活动结束啦，请继续关注哦!');
+    }
+   });
+  </script>
+ </body>
+复制代码
+      然后附上countdown插件的源代码，大神们看了不要见笑哈...
+
+
+复制代码
+  1 /**
+  2  * 简单的jquery购物商城秒杀倒计时插件
+  3  * @date 2016-06-11
+  4  * @author TangShiwei
+  5  * @email 591468061@qq.com
+  6  */
+  7 ;(function(factory) {
+  8     "use strict";
+  9     // AMD RequireJS
+ 10     if (typeof define === "function" && define.amd) {
+ 11      define(["jquery"], factory);
+ 12     } else {
+ 13      factory(jQuery);
+ 14     }
+ 15    })(function($) {
+ 16     "use strict";
+ 17     $.fn.extend({
+ 18      countdown: function(options) {
+ 19       if (options && typeof(options) !== 'object') {
+ 20        return false;
+ 21       }
+ 22       //默认配置
+ 23       var defaults = {
+ 24        //活动开始时间 (可采用时间戳 或者 标准日期时间格式 "yyyy/MM/dd HH:mm:ss")
+ 25        //优先采取元素的data-stime值(该值只能为时间戳格式)
+ 26        startTime: '2016/6/11 21:00:00',
+ 27        //活动结束时间 (可采用时间戳 或者 标准日期时间格式 "yyyy/MM/dd HH:mm:ss")
+ 28        //优先采取元素的data-etime值(该值只能为时间戳格式)         
+ 29        endTime: '2016/6/11 24:00:00',
+ 30        //活动开始前倒计时的修饰
+ 31        //可自定义元素,例如"<span>距离活动开始倒计时还有:</span>"            
+ 32        beforeStart: '距离活动开始倒计时还有:',
+ 33        //活动进行中倒计时的修饰 
+ 34        //可自定义元素,例如"<span>距离活动截止还有:</span>"  
+ 35        beforeEnd: '距离活动截止还有:',
+ 36        //活动结束后的修饰
+ 37        //可自定义元素,例如"<span>活动已结束</span>"             
+ 38        afterEnd: '活动已结束',
+ 39        //时间格式化(可采用"ddd:hh:mm:ss、 dd:hh:mm:ss、  hh:mm:ss、 mm:ss、 ss"等)                   
+ 40        format: 'dd:hh:mm:ss',
+ 41        //活动结束后的回调函数                    
+ 42        callback: function() {                    
+ 43         return false;
+ 44        }
+ 45       };
+ 46       //根据时间格式渲染对应结构
+ 47       var strategies = {
+ 48        "4": function($this, timeArr, desc) {
+ 49         return $this.html(desc + '<span class="countdown-day">' + timeArr[0] + '</span>天' + 　'<span class="countdown-hour">' + timeArr[1] + '</span>时' + '<span class="countdown-minute">' + timeArr[2] + '</span>分' + '<span class="countdown-second">' + timeArr[3] + '</span>秒');
+ 50        },
+ 51        "3": function($this, timeArr, desc) {
+ 52         return $this.html(desc + '<span class="countdown-hour">' + timeArr[0] + '</span>时' + '<span class="countdown-minute">' + timeArr[1] + '</span>分' + '<span class="countdown-second">' + timeArr[2] + '</span>秒');
+ 53        },
+ 54        "2": function($this, timeArr, desc) {
+ 55         return $this.html(desc + '<span class="countdown-minute">' + timeArr[0] + '</span>分' + '<span class="countdown-second">' + timeArr[1] + '</span>秒');
+ 56        },
+ 57        "1": function($this, timeArr, desc) {
+ 58         return $this.html(desc + '<span class="countdown-second">' + timeArr[0] + '</span>秒');
+ 59        }
+ 60       };
+ 61       /**
+ 62        * [killTime 时间差换算并进行格式化操作]
+ 63        * @param  {[Object]} _this_ [jquery对象]
+ 64        * @param  {[Number]} sTime  [当前时间]
+ 65        * @param  {[Number]} eTime  [结束时间]
+ 66        * @param  {[String]} desc   [时间修饰]
+ 67        * @param  {[String]} format [时间格式]
+ 68        * @return {[Function]} strategies [根据格式渲染对应结构]
+ 69        */
+ 70       var killTime = function(_this_, sTime, eTime, desc, format) {
+ 71        var diffSec = (eTime - sTime) / 1000;
+ 72        var map = {
+ 73         h: Math.floor(diffSec / (60 * 60)) % 24,
+ 74         m: Math.floor(diffSec / 60) % 60,
+ 75         s: Math.floor(diffSec % 60)
+ 76        };
+ 77        var format = format.replace(/([dhms])+/g, function(match, subExp) {
+ 78         var subExpVal = map[subExp];
+ 79         if (subExpVal !== undefined) {
+ 80          if (match.length > 1) {
+ 81           subExpVal = '0' + subExpVal;
+ 82           subExpVal = subExpVal.substr(subExpVal.length - match.length);
+ 83           return subExpVal;
+ 84          }
+ 85         } else if (subExp === 'd') {
+ 86          if (match.length >= 1 && match.length < 4) {
+ 87           map[subExp] = Math.floor(diffSec / (60 * 60 * 24));
+ 88           var d = '00' + map[subExp];
+ 89           return d.substr(d.length - match.length);
+ 90          }
+ 91         }
+ 92         return match;
+ 93        });
+ 94        //将时间格式通过":"符号进行分组
+ 95        var timeArr = String.prototype.split.call(format, ':');
+ 96       /**
+ 97        * [render 通过分组情况渲染对应结构]
+ 98        * @param  {[Object]} _this_ [jquery对象]
+ 99        * @param  {[Number]} timeArrLen  [时间分组后的数组长度]
+100        * @param  {[Array]} timeArr  [时间分组后的数组]
+101        * @param  {[String]} desc   [时间修饰]
+102        * @return {[Function]} strategies [根据数组长度渲染对应结构]
+103        */
+104        var render = function(_this_, timeArrLen, timeArr, desc) {
+105         return strategies[timeArrLen](_this_, timeArr, desc);
+106        };
+107        render(_this_, timeArr.length, timeArr, desc);
+108       }
+109       //覆盖默认配置
+110       var opts = $.extend({}, defaults, options);
+111       return this.each(function() {
+112        var $this = $(this);
+113        var _timer = null;
+114        //优先采取元素的data-stime值(该值只能为时间戳格式)
+115        var sTime = $this.data('stime') ? parseInt($this.data('stime'), 10) : (new Date(opts.startTime)).getTime();
+116        //优先采取元素的data-etime值(该值只能为时间戳格式)
+117        var eTime = $this.data('etime') ? parseInt($this.data('etime'), 10) : (new Date(opts.endTime)).getTime();
+118        if (_timer) {
+119         clearInterval(_timer);
+120        }
+121        _timer = setInterval(function() {
+122         var nowTime = (new Date()).getTime();
+123         if (nowTime < sTime) {
+124          //活动暂未开始
+125          killTime($this, nowTime, sTime, opts.beforeStart, opts.format);
+126         } else if (nowTime >= sTime && nowTime <= eTime) {
+127          //活动进行中
+128          killTime($this, nowTime, eTime, opts.beforeEnd, opts.format);
+129         } else {
+130          //活动已结束
+131          clearInterval(_timer);
+132          $this.html(opts.afterEnd);
+133          if (opts.callback && $.isFunction(opts.callback)) {
+134           opts.callback.call($this);
+135          }
+136         }
+137        }, 1000);
+138       });
+139      }
+140     });
+141    });

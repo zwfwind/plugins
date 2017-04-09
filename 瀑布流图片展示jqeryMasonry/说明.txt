@@ -1,0 +1,182 @@
+使用教程
+Chroma Gallery是一款基于Masonry瀑布流的全屏预览图片画廊jQuery插件。该图片画廊使用Masonry瀑布流布局，当鼠标滑过图片时，图片颜色会变为黑白色。点击某张图片缩略图时，该图片会全屏放大，而且全屏时的背景色为该图片的主导颜色。在全屏放大模式下可以前后导航预览每一张图片。
+
+该图片画廊插件依赖于jQuery，Masonry，Images Loaded以及一个自定义的Modernizr插件。
+<script src="scripts/modernizr-chrg.min.js"></script>
+<script src="scripts/imagesloaded.min.js"></script>
+<script src="scripts/masonry.min.js"></script>
+<script src="scripts/chromagallery.min.js"></script>
+另外还需要引入chromagallery.min.css文件，CSS文件中使用了字体文件，字体文件夹需要放置在合适的路径下。
+
+<link rel="stylesheet" href="stylesheets/chromagallery.min.css">
+HTML结构
+
+该图片画廊的HTML结构非常简单：使用一个<div>元素来包裹所有的图片。
+<div class="chroma-gallery mygallery">
+    <img src="images/thumbs/1.jpg" alt="Pic 1" data-largesrc="images/1.jpg">
+    <img src="images/thumbs/2.jpg" alt="Pic 2" data-largesrc="images/2.jpg">
+    <img src="images/thumbs/3.jpg" alt="Pic 3" data-largesrc="images/3.jpg">
+    <img src="images/thumbs/4.jpg" alt="Pic 4" data-largesrc="images/4.jpg">
+    <img src="images/thumbs/5.jpg" alt="Pic 5" data-largesrc="images/5.jpg">
+    <img src="images/thumbs/6.jpg" alt="Pic 6" data-largesrc="images/6.jpg">
+    <img src="images/thumbs/7.jpg" alt="Pic 7" data-largesrc="images/7.jpg">
+    <img src="images/thumbs/8.jpg" alt="Pic 8" data-largesrc="images/8.jpg">
+    <img src="images/thumbs/9.jpg" alt="Pic 9" data-largesrc="images/9.jpg">
+    <img src="images/thumbs/10.jpg" alt="Pic 10" data-largesrc="images/10.jpg">
+</div>
+图片上的alt属性用于指定图片的标题。data-largesrc属性用于指定该图片的高清版本图片的URL位置。
+
+包裹div元素上的chroma-gallery class用于防止图片过早的显示。
+
+初始化插件
+在页面DOM元素加载完毕之后，可以通过下面的方法来初始化该图片画廊插件。
+<script type="text/javascript">
+    $(".mygallery").chromaGallery(};
+</script>
+也可以在初始化的时候配置一些参数：
+<script type="text/javascript">
+    $(".mygallery").chromaGallery
+    ({
+        color:'#000',
+        gridMargin:15,
+        maxColumns:5
+        dof:true,
+        screenOpacity:0.8
+    });
+</script>
+你可以像下面的样子在代码中调用图片：
+<script type="text/javascript">
+    $(".mygallery").chromaGallery
+    ({
+        items:
+        [
+            {
+                alt:'Pic 1',
+                largesrc:'images/1.jpg'   
+            },
+            {
+                alt:'Pic 2',
+                largesrc:'images/2.jpg'   
+            },
+            {
+                alt:'Pic 3',
+                largesrc:'images/3.jpg'   
+            },
+            {
+                alt:'Pic 4',
+                largesrc:'images/4.jpg'   
+            }
+        ]
+    });
+</script>
+注意：如果你即提供了HTML的图片代码，有提供了一个items参数，那么插件会使用items参数中提供的图片。
+
+配置参数
+名称	默认值	描述
+color	chroma	设置图片画廊的背景色。默认值为“chroma”，它使用图片的主导颜色作为背景色
+maxColumns	4	网格布局的最大列数
+items	null	要加载的图片数组
+dof	false	深度背景效果，对性能有影响
+screenOpacity	0.98	屏幕的透明度，值在0-1之间
+lazyLoad	true	是否启用图片懒加载
+gridMargin	7	网格图片之间的间隔
+fullscreen	false	是否添加全屏模式
+easing	easeInOutQuart	设置打开和关闭图片画廊时的easing动画效果，可用值如下：
+可用的easing效果有：
+
+linear
+
+ease
+
+easeIn
+
+easeOut
+
+easeInOut
+
+easeInQuad
+
+easeInCubic
+
+easeInQuart
+
+easeInQuint
+
+easeInSine
+
+easeInExpo
+
+easeInCirc
+
+easeInBack
+
+easeOutQuad
+
+easeOutCubic
+
+easeOutQuart
+
+easeOutQuint
+
+easeOutSine
+
+easeOutExpo
+
+easeOutCirc
+
+easeOutBack
+
+easeInOutQuad
+
+easeInOutCubic
+
+easeInOutQuart
+
+easeInOutQuint
+
+easeInOutSine
+
+easeInOutExpo
+
+easeInOutCirc
+
+easeInOutBack
+
+方法
+方法名称	参数	描述
+openImg	图片的index	从网格中打开一张图片
+closeImg	none	关闭任何打开的图片
+goTo	图片的index	当有图片已经打开时跳转到指定的图片上
+next	none	跳转到下一张图片上
+prev	none	跳转到前一张图片上
+示例代码：
+<script type="text/javascript">
+    var mygallery = $(".mygallery").chromaGallery();
+  
+    //will open the third
+    mygallery.chromaGallery("openImg",2);
+</script>
+回调函数
+名称	描述
+onLoad	图片画廊加载时被调用
+onOpen	当一张图片被打开时调用
+onClose	当一张图片被关闭时调用
+onNext	当跳转到下一张图片时被调用
+onPrev	当跳转到前一张图片时被调用
+onFullscreen	当跳转到全屏模式时被调用（如果可用）
+浏览器兼容
+Firefox 4+
+
+IE 9+
+
+Google Chrome 8+
+
+Safari 3.1+
+
+Opera 11.5+
+
+IOS Safari 3.2+
+
+Android Browser 2.1+
+
+Opera Mobile 12+

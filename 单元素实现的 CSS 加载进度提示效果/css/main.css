@@ -1,0 +1,41 @@
+
+body {
+  background: #0dcecb;
+}
+main {
+  overflow: hidden;
+}
+.inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.load-container {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 240px;
+  height: 240px;
+  float: left;
+  position: relative;
+  overflow: hidden;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.loader {
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}
+@media (max-width: 960px) {
+  .inner {
+    max-width: 480px;
+  }
+}
+@media (max-width: 500px) {
+  .inner {
+    width: 100%;
+  }
+  .load-container {
+    width: 100%;
+  }
+}

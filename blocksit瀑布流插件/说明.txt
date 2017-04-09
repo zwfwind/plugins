@@ -1,0 +1,41 @@
+﻿BlocksIt 瀑布流插件是基于jquery的，使用也非常简单，是为数不多的几款动态瀑布流插件之一。
+
+官方网站：http://j.gs/2Gey
+演示网站：https://www.pinterest.com/；http://masonry.desandro.com/
+
+使用方法很简单：
+
+1. 调用所需的js文件，js文件可以从上面的官方网站下载到。
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="blocksit.js"></script>
+
+2.) 调用插件
+$(document).ready(function() {
+	$('#objectID').BlocksIt();
+});
+
+这个用法只是最基本的，但是直接按照官方的说明去做会有一些问题，比如如果你的图片大小在img标签中没有指定，瀑布流效果就不会有，每个img都是整齐排在那里，因为大小都是按照默认的统一的尺寸，只有img有大有小的时候，大小不统一才能出现瀑布流效果。
+
+解决思路：图片先不显示，先将图片加载好，然后调用瀑布流插件将其显示出来，在图片加载中，有一些提示。
+
+假设要瀑布流显示的内容都在id=container里面
+
+#container默认css中display:none;
+
+<script type="text/javascript">
+	//blocksit define
+	$(window).load( function() {
+                $('#loading').hide();
+		$('#container').show().BlocksIt({
+			numOfCol: 4,
+			offsetX: 3,
+			offsetY: 3
+		});
+	});
+</script>
+
+可以发现里面有个loading的标签，loading的代码如下：
+
+<div id="loading">
+<center>数据正在给力加载中。。。     <img src='/style/loading.gif'/></center>
+</div>

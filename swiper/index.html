@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="stylesheet" href="css/style.css">
+<link href="css/swiper-3.4.1.min.css" rel="stylesheet" media="screen" type="text/css" />
+
+<script language="javascript" type="text/javascript" src="js/swiper-3.4.1.jquery.min.js"></script>
+
+</head>
+<body>
+<style>
+    .swiper-container {
+        width: 804px;
+        height: 433px;
+}
+</style>
+	<div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="img/1.jpg"></div>
+        <div class="swiper-slide"><img src="img/2.jpg"></div>
+        <div class="swiper-slide"><img src="img/3.jpg"></div>
+        <div class="swiper-slide"><img src="img/6.jpg"></div>
+        <div class="swiper-slide"><img src="img/5.jpg"></div>
+      </div>
+      <!-- 如果需要分页器 
+      <div class="swiper-pagination"></div>-->
+    
+      <!-- 如果需要导航按钮 -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    
+      <!-- 如果需要滚动条 
+      <div class="swiper-scrollbar"></div>-->
+    </div>
+	
+	
+	
+	
+	
+	<script>        
+  var mySwiper = new Swiper ('.swiper-container', {
+    slidesPerView : 3,//同事显示多少个图片，最多4
+	spaceBetween:20,//图片间隔
+	direction: 'horizontal',//横向为horizontal，纵向为vertical
+    loop: true,//循环true，false
+	//lazyLoading : true,//延迟读取
+	//lazyLoadingInPrevNext : true,//延迟读取上一张和下一张
+	//lazyLoadingInPrevNextAmount : 2,//延迟读取以后或以前都少张，熟悉不可少于slidesPerView
+	
+	// 如果需要分页器
+    //pagination: '.swiper-pagination',
+    
+    // 如果需要前进后退按钮
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    
+    // 如果需要滚动条
+    //scrollbar: '.swiper-scrollbar',
+	//参数参考：http://www.swiper.com.cn/api/start/2014/1218/140.html
+  })        
+  </script>
+</body>
+</html>

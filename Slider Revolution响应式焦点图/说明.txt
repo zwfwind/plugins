@@ -1,0 +1,85 @@
+HTML
+Slider Revolution是一款基于jQuery的插件，使用它时需要先载入jQuery库文件，以及Slider Revolution依赖的css和js文件。
+
+<script src="js/jquery.js"></script> 
+<link rel="stylesheet" href="css/style.css" media="screen" /> 
+<script src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script> 
+<script src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script> 
+内容切换的主体html结构如下，由div.tp-banner包含多个<li>标签，<li>中放置切换的内容，包括主要图片、文字、按钮信息。这些信息配上各自的data-属性，是为了让Slider Revolution识别。
+
+<div class="tp-banner-container"> 
+ <div class="tp-banner" > 
+  <ul> 
+   <!-- SLIDE -->
+   <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" > 
+    <!-- MAIN IMAGE -->
+    <img src="images/bg1.jpg" alt="slidebg1" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat"> 
+    <!-- LAYERS -->
+    <!-- LAYER NR. 1 -->
+    <div class="tp-caption lightgrey_divider skewfromrightshort fadeout"
+     data-x="85"
+     data-y="224"
+     data-speed="500"
+     data-start="1200"
+     data-easing="Power4.easeOut">My Caption 
+    </div> 
+    ... 
+  
+   </li> 
+   <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" > 
+    <!-- MAIN IMAGE -->
+    <img src="images/bg2.jpg" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat"> 
+    <!-- LAYERS -->
+    <!-- LAYER NR. 1 -->
+    <div class="tp-caption lightgrey_divider skewfromrightshort fadeout"
+     data-x="85"
+     data-y="224"
+     data-speed="500"
+     data-start="1200"
+     data-easing="Power4.easeOut">My Caption 
+    </div> 
+    ... 
+   </li> 
+   .... 
+  </ul> 
+ </div> 
+</div> 
+
+jQuery调用
+HTML结构布置好后，就可以调用Slider Revolution插件了，贴上以上代码后，打开浏览器就可以看到切换效果了。
+
+$(function() { 
+ $('.tp-banner').revolution({ 
+  delay:9000, 
+  startwidth:1170, 
+  startheight:500, 
+  hideThumbs:10
+ }); 
+}); 
+
+选项设置与说明
+Slider Revolution提供了很多参数选项设置：
+delay: 滑动内容停留时间。默认9000毫秒
+startheight: 滑动内容高度，默认490像素。
+startwidth: 滑动内容宽度，默认890像素。
+navigationType: 显示翻页图标，默认“bullet”（圆点），如果设置为“none”则不显示。。
+navigationArrows: 显示翻页箭头，默认nexttobullets，即鼠标滑向时显示左右翻页箭头，如果设置为none则不显示。
+touchenabled: 是否允许触摸滑动，默认on即允许，如果设置为off则不允许。
+onHoverStop: 是否开启鼠标滑向时暂停，on：开启，off：关闭。
+fullWidth: 是否开启全屏展示图片内容，on：开启，off：关闭。
+
+对于每个<li>标签可以设置各种效果：
+data-transition: 内容滑动效果，可以设置以下值：boxslide，boxfade，slotzoom-horizontal，slotslide-horizontal，slotfade-horizontal，slotzoom-vertical，slotslide-vertical，slotfade-vertical，curtain-1，curtain-2，curtain-3，slideleft，slideright，slideup，slidedown，fade
+data-slotamount: 切换时被分成的方形块数。
+data-link: 图片链接
+data-delay: 设置当前滑块内容的停留时间
+对于每个li里面的元素，可以设置以下选项来实现各种效果。
+动画样式，class属性: class属性值代表不同的动画样式：sft - Short from Top sfb - Short from Bottom，sfr - Short from Right，sfl - Short from Left，lft - Long from Top，lfb - Long from Bottom，lfr - Long from Right，lfl - Long from Left，fade - fading
+data-x: 当前元素相对li的横向位移
+data-y : 当前元素相对li的纵向位移
+data-speed: 动画时间，毫秒
+data-start after: 当前元素等待几秒后再显示
+data-easing: 缓冲动画，有easeOutBack...多种动画效果，可参照jQuery Easing 动画效果扩展
+此外，如果要加上时间线作为一个定时器，可以在滑动内容的末尾加上以下代码：
+
+<div class="tp-bannertimer"></div>

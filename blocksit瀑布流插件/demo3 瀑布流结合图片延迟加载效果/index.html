@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>懒人修改jQuery.blocksit插件实现瀑布流结合图片延迟加载效果</title>
+<style>
+*{ margin:0; padding:0; list-style:none;}
+#lanrenzhijia{position:relative;width:1000px; margin:0 auto;}
+.lanren{ width:174px;float:left;box-shadow: 0 1px 3px rgba(34,25,25,0.2);overflow:hidden;padding:5px; text-align:center; border:1px solid #DEDCDC; border-radius:3px; overflow:hidden;}
+.lanren:hover{box-shadow: 0 1px 3px rgba(34,25,25,0.5); border:1px solid #AFAFAF}
+.lanren img{ width:172px;margin-bottom:5px;}
+.lanren a{ color:#666; text-decoration:none; font-size:12px;}
+</style>
+</head>
+<body>
+<div id="lanrenzhijia">
+	
+    <div class="lanren">
+      <img class="lazy" src="autumnjapan7.jpg" data-original="autumnjapan7.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="autumnjapan7.jpg" data-original="autumnjapan7.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="autumnjapan7.jpg" data-original="autumnjapan7.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="autumnjapan7.jpg" data-original="autumnjapan7.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="autumnjapan7.jpg" data-original="autumnjapan7.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="autumnjapan7.jpg" data-original="autumnjapan7.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="autumnjapan7.jpg" data-original="autumnjapan7.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="autumnjapan7.jpg" data-original="autumnjapan7.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="autumnjapan7.jpg" data-original="autumnjapan7.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="autumnjapan7.jpg" data-original="autumnjapan7.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="autumnjapan7.jpg" data-original="autumnjapan7.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="autumnjapan7.jpg" data-original="autumnjapan7.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+    <div class="lanren">
+      <img class="lazy" src="autumnjapan7.jpg" data-original="autumnjapan7.jpg" /><a href="http://www.lanrenzhijia.com/">懒人之家瀑布流结合图片延迟加载效果</a>
+    </div>
+</div>
+<script src="http://www.lanrenzhijia.com/ajaxjs/jquery.min.js"></script>
+<script src="js/jquery.lazyload.min.js"></script>
+<script src="js/blocksit.min.js"></script>
+<script>
+$(function(){
+	$("img.lazy").lazyload({		
+		load:function(){
+			$('#lanrenzhijia').BlocksIt({
+				numOfCol:5, //每行显示图片个数
+				offsetX: 8,
+				offsetY: 8
+			});
+		}
+	});	
+	$(window).scroll(function(){
+			// 当滚动到最底部以上50像素时， 加载新内容
+		if ($(document).height() - $(this).scrollTop() - $(this).height()<0){		
+			$('#lanrenzhijia').BlocksIt({
+				numOfCol:5, //每行显示图片个数
+				offsetX: 8,
+				offsetY: 8
+			});
+			$("img.lazy").lazyload();
+		}
+	});
+});
+</script>
+</body>
+</html>
