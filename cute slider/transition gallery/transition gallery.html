@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<title>Cute Slider :: Transition Gallery</title>
+	
+	<script src="js/jquery-1.8.0.min.js"	      type="text/javascript" charset="utf-8"></script>
+	<script src="js/modernizr-transitions.js"     type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.masonry.min.js"	  	  type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.qtip-1.0.0-rc3.min.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script src="js/transition-dic.js" type="text/javascript" charset="utf-8"></script>	
+	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	
+	<!--[if IE]> 
+		<script type="text/javascript" charset="utf-8">
+			window.isIE = true;
+		</script>
+	<![endif]-->
+
+	<link rel="stylesheet" href="style/style.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
+	<link rel="stylesheet" href="style/jquery.tooltip.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
+</head>
+<body>
+	
+		<div id="code-layer" class="code-layer">
+			<div class="code-window">
+				<div class="title"> 
+					<p> Code: <span id='code-close' class="close-btn"> </span></p>
+				</div>
+				<div class="body"> 
+					<div id='code-block' class="code-block"> </div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="sidebar">
+			<div class="logo">
+				<img src="images/cute-logo.gif" alt="Cute Banner Rotator"/>
+			</div>
+			<p class="caption">
+				Welcome to Cute Slider Transition Gallery.<br /> Create your own transition list.
+			</p>
+			<button id="build-btn" class="build-btn" type="button" > Build </button>
+			<p class="info">by <a href="http://codecanyon.net/user/averta" title="Averta" target="_blank">Averta</a>. version 1.0</p>
+		</div>
+
+		<div class="content">
+
+			<h1 class="section-title trans3d">3D Transitions</h1>
+			
+			<div id="trans3d-container">
+							
+			</div>
+			
+			<h1 class="section-title trans2d">2D Transitions</h1>
+			
+			<div id="trans2d-container">
+				
+			</div>
+
+		</div>
+		
+		<script>
+			var _3dt = new TransitionGallery(document.getElementById('trans3d-container') , transitions3d).create();
+			var _2dt = new TransitionGallery(document.getElementById('trans2d-container') , transitions2d).create(true);
+			
+			CodeLayer.instance = new CodeLayer( document.getElementById("code-layer"),
+												document.getElementById("code-close"),
+												document.getElementById("code-block"));
+			
+			
+			var builder = new Builder(_3dt , _2dt , CodeLayer.instance);
+			
+			document.getElementById('build-btn').onclick = function(){builder.build()}
+			
+			
+			$('#trans3d-container').masonry({
+			  isAnimated: !Modernizr.csstransitions,
+			});
+			
+			$('#trans2d-container').masonry({
+			  isAnimated: !Modernizr.csstransitions,
+			});
+		</script>
+		
+		
+</body>
+</html>

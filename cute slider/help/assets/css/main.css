@@ -1,0 +1,96 @@
+a {
+	text-decoration: none;
+	color:#3399cc;
+}
+
+a:hover {
+	text-decoration: underline;
+	color:#428BDD;
+}
+
+h3{
+	font: 19px'OpenSansSemibold', Arial, sans-serif;
+}
+
+.header{
+	position: relative;
+	height: 220px;
+}
+	
+	.header img{
+		position: absolute;
+	}
+	
+	.header .title{
+		left: 194px;
+		bottom: 15px;
+		position: absolute;
+	}
+
+	.header .title-name{
+		font: 33px 'OpenSansSemibold', Arial, sans-serif;
+		color: #333;
+		letter-spacing: -0.08em;
+	}
+	
+	.header .title-author , .header .title-version{
+		font: 12px 'OpenSansRegular', Arial, sans-serif;
+		color: #333;
+		margin-bottom: 5px;
+	}
+	
+	.header .title-version{
+		color: #aeaeae;
+		font-size: 10px;
+	}
+	
+
+.alt{
+	font: 23px 'OpenSansLightItalic', Arial, sans-serif;
+}
+
+
+div.colborder {
+	margin: 0px;
+	padding: 0px;
+	border-right: 1px dashed #CFCFCF;
+	background: #F0F0F0;
+	color: #333;
+	width: 156px;
+	height: 100px;
+}
+
+	.prepend-top{
+		position: relative;
+		left: 23px;
+		top: 19px;
+		line-height: 15px;
+		font:12px 'OpenSansRegular', Arial, sans-serif;
+		color:#333;
+	}
+
+.last, div.last {
+	margin-bottom: 25px;
+	margin-right: 0;
+	padding-left: 24px;
+	background: #F0F0F0;
+	width: 609px;
+	height: 100px;
+}
+
+.syntaxhighlighter .gutter .line {
+	border-right: 3px solid #DADADA !important;
+}
+
+.syntaxhighlighter .toolbar {
+	background: #B9B9B9 !important;
+}
+
+.syntaxhighlighter .line.alt2 {
+	background-color: #FAFAFA !important;
+}
+
+.averta {
+	float:right;
+	padding-top:3px;
+}

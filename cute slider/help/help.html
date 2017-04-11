@@ -1,0 +1,808 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Cute Slider Documentation</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/open-sans-fontfacekit/font.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+	<link rel="stylesheet" type="text/css" href="syntax-highlighter/styles/shCore.css" media="all">
+	<link rel="stylesheet" type="text/css" href="syntax-highlighter/styles/shThemeDefault.css" media="all">
+	<link rel="stylesheet" href="assets/css/main.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
+	<link rel="icon" type="image/png" href="assets/images/fav.png" />
+
+</head>
+
+
+<body>
+	<div class="container">
+			
+		<div class="header">
+			<img src="assets/images/cute-logo.gif"/>
+			<div class="title">
+			<h1 class="title-name">Cute Slider</h1>
+			<h3 class="title-author">Documentation by &ldquo;Averta&rdquo;</h3>
+			<h3 class="title-version">Version 2.0</h3>
+			</div>
+		</div>
+		<div class="clear"> </div>
+		<div>
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					Created: 9/7/2012<br>
+					<a href="mailto:envato@averta.net">envato@averta.net</a>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">At first we would like to thank you for purchasing our item. If you have any questions that are not mentioned in this document, please feel free to contact us.</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#intro">Intro</a></li>
+			<li><a href="#startup">5 Seconds Startup</a></li>
+			<li><a href="#overview">Overview</a></li>
+			<li><a href="#javascript-files">JavaScript And CSS Files</a></li>
+			<li><a href="#markup">Cute Slider Markup</a></li>
+			<li><a href="#adding-slide">Adding Slide</a></li>
+			<li><a href="#slide-contents">Slide Contents</a>
+				<ol>
+					<li><a href="#sc-image">Slide image</a></li>
+					<li><a href="#sc-info">Slide info</a></li>
+					<li><a href="#sc-captions">Captions</a></li>
+					<li><a href="#sc-videos">Videos</a></li>
+					<li><a href="#sc-link">Link</a></li>
+				</ol>
+			</li>
+			<li><a href="#controls">Controls</a>
+				<ol>
+					<li><a href="#ct-captions">Captions</a></li>
+					<li><a href="#ct-link">Link</a></li>
+					<li><a href="#ct-video">Video</a></li>
+					<li><a href="#ct-info">Slide Info</a></li>
+					<li><a href="#ct-ctimer">Circle Timer</a></li>
+					<li><a href="#ct-next">Next</a></li>
+					<li><a href="#ct-previous">Previous </a></li>
+					<li><a href="#ct-control">Slide Control</a></li>
+					<li><a href="#ct-btimer">Bar timer </a></li>
+				</ol>
+			</li>
+			<li><a href="#js-setup">JS Slider Setup</a></li>
+			<li><a href="#js-api">Javascript API</a></li>
+		</ol>
+		
+		<hr>
+		
+		<h3 id="intro"><strong>A) Intro</strong> - <a href="#toc">top</a></h3>
+		<p>Cute Slider is an advanced slider with awesome 3D &amp; 2D transitions, captions and videos (Youtube and Vimeo) support which has been written with pure object oriented javascript. It has three levels fallback which means it can work in major browsers and devices.</p>
+		<h4>Key Features:</h4>
+		<ul class="alpha">
+			<li>Responsive</li>
+			<li>3D &amp; 2D Effects</li>
+			<li>5 Ready to use templates</li>
+			<li>100+ Transitions</li>
+			<li>3 fallback levels</li>
+			<li>Cross browser and device friendly</li>
+			<li>Transition gallery included </li>
+			<li>Fully customizable </li>
+			<li>Hardware accelerated CSS3 3D Transitions in webkit browsers</li>
+			<li>Canvas support for 3D Transitions in non-webkit browsers</li>
+			<li>Javascript framework independent</li>
+			<li>SEO optimized</li>
+			<li>Smart resource loader</li>
+			<li>Option to use multiline caption for every slide with Different style (HTML, CSS supported)</li>
+			<li>Option to set a link for each slide</li>
+			<li>Thumbnails over navigation</li>
+			<li>Youtube and Vimeo videos support</li>
+		</ul>
+			
+		<hr>
+		
+		<h3 id="startup"><strong>B) 5 Seconds Startup</strong> - <a href="#toc">top</a></h3>
+			<h5><strong>Step 1: Link required files</strong></h5>
+			<p>
+				At first you need to put reqired files beside your page:<br />
+				Go to "source/compressed" and copy all javascript files to "js/cute" directory beside your page.<br />
+				Go to "source/assets" and copy "cute-theme" folder beside your page.<br />
+				Go to "source/assets/style" and copy "slider-style.css" to "style" directory beside your page.<br />
+				Then add following html to the &lt;head&gt; of your page.
+				<pre class="brush: html">
+					&lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.1/modernizr.min.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+					&lt;script src=&quot;js/cute/cute.slider.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+					&lt;script src=&quot;js/cute/cute.transitions.all.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+					
+					&lt;link rel=&quot;stylesheet&quot; href=&quot;style/slider-style.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot;  charset=&quot;utf-8&quot;/&gt;
+					
+					&lt;script src=&quot;http//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+					
+				</pre>
+			</p>
+			
+			<h5><strong>Step 2: Add Slide Style</strong></h5>
+			<p>
+				Add following css to the &lt;head&gt; of your page.
+				
+				<pre class="brush: css">
+					&lt;style&gt;
+						#my-cute-slider{
+							position:relative;
+						}
+						
+						#slider-wrapper{
+							position:relative;
+							min-width:300px;
+							max-width:800px; 
+							margin: 0 auto;
+						}
+					&lt;/style&gt;
+				</pre>
+			</p>
+			
+			<h5><strong>Step 3: Add Cute Slider Markup</strong></h5>
+			<p>
+				Add following html to the &lt;body&gt; of your page:<br />
+				In this code determines that the slide images are located in "images" and the thumbnail images are in "images/thumbs" beside your page.
+				<pre class="brush: html">
+					&lt;div id=&quot;slider-wrapper&quot;&gt;
+						&lt;div id=&quot;my-cute-slider&quot; data-width=&quot;800&quot; data-height=&quot;350&quot; data-vpwidth=&quot;900&quot; data-vpheight=&quot;400&quot;&gt;
+						    &lt;ul data-type=&quot;slides&quot;&gt;
+						        &lt;li data-delay=&quot;4&quot; data-trans3d=&quot;tr28&quot; data-trans2d=&quot;tr1&quot;&gt;
+						            &lt;img src=&quot;images/1.jpg&quot; data-thumb=&quot;images/thumbs/1.jpg  &quot;/&gt;
+						        &lt;/li&gt;
+						        &lt;li data-delay=&quot;4&quot; data-trans3d=&quot;tr25&quot; data-trans2d=&quot;tr1 &quot;&gt;
+						            &lt;img src=&quot;theme/blank.jpg&quot; data-src=&quot;images/2.jpg&quot; data-thumb=&quot;images/thumbs/2.jpg&quot;/&gt;
+						        &lt;/li&gt;
+						        &lt;li data-delay=&quot;4&quot; data-trans3d=&quot;tr29&quot; data-trans2d=&quot;tr1&quot;&gt;
+						            &lt;img src=&quot;theme/blank.jpg&quot; data-src=&quot;images/3.jpg&quot; data-thumb=&quot;images/thumbs/3.jpg&quot;/&gt;
+						        &lt;/li&gt;
+						    &lt;/ul&gt;
+						    &lt;ul data-type=&quot;controls&quot;&gt;         
+						        &lt;li data-type=&quot;circletimer&quot;&gt; &lt;/li&gt;
+						        &lt;li data-type=&quot;next&quot;&gt; &lt;/li&gt;
+						        &lt;li data-type=&quot;previous&quot;&gt; &lt;/li&gt;
+						        &lt;li data-type=&quot;slidecontrol&quot;&gt; &lt;/li&gt;
+						        &lt;li data-type=&quot;bartimer&quot;&gt; &lt;/li&gt;             
+						    &lt;/ul&gt;
+						    &lt;div class=&quot;br-shadow&quot;&gt; &lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				</pre>
+			</p>	
+			
+			<h5><strong>Step 4: Setup the Slider</strong></h5>
+			<p>
+				Add following js at the end of &lt;body&gt; in your page:
+				
+				<pre class="brush: html">
+					&lt;script&gt;
+						var myslider = new Cute.Slider();
+						myslider.setup(&quot;my-cute-slider&quot; , &quot;slider-wrapper&quot;);
+					&lt;/script&gt;
+				</pre>
+			</p>	
+		<hr>
+
+		<h3 id="overview"><strong>C) Overview</strong> - <a href="#toc">top</a></h3>
+			
+			<h4>Required Javascript files:</h4>
+			<pre class="brush: html">
+		&lt;script src=&quot;js/modernizr.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+		&lt;script src=&quot;js/cute/cute.slider.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+		&lt;script src=&quot;js/cute/cute.transitions.all.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+			</pre>
+			
+			<h4>Required CSS files:</h4>
+			<pre class="brush: html">
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;css/slider-style.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot;  charset=&quot;utf-8&quot;/&gt;
+			</pre>
+			
+			
+			<h4>Cute Slider Definition Markup:</h4>
+			<pre class="brush: html">
+				
+
+		&lt;div id=&quot;my-cute-slider&quot; data-width=&quot;800&quot; data-height=&quot;350&quot; &gt;
+			&lt;ul data-type=&quot;slides&quot;&gt;
+				&lt;li data-delay=&quot;4&quot; data-trans3d=&quot;tr28&quot; data-trans2d=&quot;tr1&quot;&gt;
+					&lt;img src=&quot;images/1.jpg&quot; data-thumb=&quot;images/thumbs/1.jpg	&quot;/&gt;
+					&lt;p data-type=&quot;info&quot;&gt;
+						Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+					&lt;/p&gt;
+				&lt;/li&gt;
+				&lt;li data-delay=&quot;4&quot; data-trans3d=&quot;tr25&quot; data-trans2d=&quot;tr1 &quot;&gt;
+					&lt;img src=&quot;theme/blank.jpg&quot; data-src=&quot;images/2.jpg&quot; data-thumb=&quot;images/thumbs/2.jpg&quot;/&gt;
+					&lt;a data-type=&quot;video&quot; href=&quot;http://player.vimeo.com/video/1084537&quot; width=&quot;800&quot; height=&quot;350&quot; &gt; &lt;/a&gt;
+				&lt;/li&gt;
+				&lt;li data-delay=&quot;4&quot; data-trans3d=&quot;tr29&quot; data-trans2d=&quot;tr1&quot;&gt;
+					&lt;img src=&quot;theme/blank.jpg&quot; data-src=&quot;images/3.jpg&quot; data-thumb=&quot;images/thumbs/3.jpg&quot;/&gt;
+				&lt;/li&gt;
+				&lt;li data-delay=&quot;4&quot; data-trans3d=&quot;tr29&quot; data-trans2d=&quot;tr1&quot;&gt;
+					&lt;img src=&quot;theme/blank.jpg&quot; data-src=&quot;images/4.jpg&quot; data-thumb=&quot;images/thumbs/4.jpg&quot;/&gt;
+					&lt;p data-type=&quot;info&quot; data-align=&quot;right&quot;&gt;
+						Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+					&lt;/p&gt;
+					&lt;a data-type=&quot;link&quot; href=&quot;http://www.google.com&quot; target=&quot;_blank&quot; &gt; &lt;/a&gt;.
+					&lt;ul data-type=&quot;captions&quot;&gt;
+						&lt;li class=&quot;caption1&quot; data-effect=&quot;fade&quot;&gt;
+							Euismod tincidunt
+						&lt;/li&gt;
+						&lt;li class=&quot;caption2&quot; data-delay=&quot;500&quot; data-effect=&quot;slide&quot;&gt;
+							Accumsan et iusto odio dignissim qui
+						&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/li&gt;
+				&lt;li data-delay=&quot;4&quot; data-trans3d=&quot;tr45&quot; data-trans2d=&quot;tr1&quot;&gt;
+					&lt;img src=&quot;theme/blank.jpg&quot; data-src=&quot;images/5.jpg&quot; data-thumb=&quot;images/thumbs/5.jpg&quot;/&gt;
+					&lt;p data-type=&quot;info&quot; data-align=&quot;left&quot;&gt;
+						Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+					&lt;/p&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;
+			&lt;ul data-type=&quot;controls&quot;&gt;			
+				&lt;li data-type=&quot;captions&quot;&gt; &lt;/li&gt;
+				&lt;li data-type=&quot;link&quot;&gt; &lt;/li&gt;
+				&lt;li data-type=&quot;video&quot;&gt; &lt;/li&gt;
+				&lt;li data-type=&quot;slideinfo&quot;&gt; &lt;/li&gt;
+				&lt;li data-type=&quot;circletimer&quot;&gt; &lt;/li&gt;
+				&lt;li data-type=&quot;next&quot;&gt; &lt;/li&gt;
+				&lt;li data-type=&quot;previous&quot;&gt; &lt;/li&gt;
+				&lt;li data-type=&quot;slidecontrol&quot;&gt; &lt;/li&gt;
+				&lt;li data-type=&quot;bartimer&quot;&gt; &lt;/li&gt;				
+			&lt;/ul&gt;
+			&lt;div class=&quot;br-shadow&quot;&gt; &lt;/div&gt;
+		&lt;/div&gt;
+		</pre>
+		
+		
+		<h4>Cute Javascript setup:</h4>
+		<pre class="brush: html">
+		&lt;script&gt;
+			var myslider = new Cute.Slider();
+			myslider.setup(&quot;my-cute-slider&quot; , &quot;slider-wrapper&quot;);
+		&lt;/script&gt;
+		</pre>
+
+		<hr>
+		
+		<h3 id="javascript-files"><strong>D) JavaScript And CSS Files</strong> - <a href="#toc">top</a></h3>
+		
+		<p>To use the Cute slider you need to link following files into your page:</p>
+		
+		<ol>
+			<li>modernizr 2.0+ (recommended) or yepnope</li>
+			<li>cute.slider.js</li>
+			<li>cute.transitions.all.js</li>
+			<li>slider-style.css</li>
+			<li>respond.min.js</li>
+		</ol>
+		
+		<h4>Example:</h4>
+		<pre class="brush: html">
+		&lt;script src=&quot;js/modernizr.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+		&lt;script src=&quot;js/cute/cute.slider.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+		&lt;script src=&quot;js/cute/cute.transitions.all.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+			
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;css/slider-style.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot;  charset=&quot;utf-8&quot;/&gt;
+		
+		&lt;script src=&quot;js/respond.min.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+		</pre>
+		
+		<ol>
+			<li>You can download modernizr (recommended) from <a href="http://modernizr.com/" target="_blank">this link</a> or yepnopejs from <a href="http://yepnopejs.com/" target="_blank">this.</a></li>
+			<li>"cute.slider.js" Is the main cute slider file (in source/compressed directory).</li>
+			<li>"cute.transitions.all.js" All of the slider transitions are added into this file (in source/compressed directory). If you'd like to create your own transition list you can use transition gallery. </li>
+			<li>"slider-style.css" This file contains Cute slider template. You can find it in "source/assets/style".</li>
+			<li>Cute slide template images are located in "source/assets/cute-theme" Tt's important to put this folder beside your page.</li>
+			<li>You can download respond.js form <a href="https://github.com/scottjehl/Respond" target="_blank">this link</a>. It's important to import it after all of your css files.</li>
+		</ol>
+			
+		<p>
+			<span class="important"> IMPORTANT:</span> You also need to copy following files (located in source/compressed directory) and put them in a same directory as "js/cute" beside your html file:
+			<ul>
+				<li>cute.canvas.module.js</li>
+				<li>cute.2d.module.js</li>
+				<li>cute.css3d.module.js</li>
+			</ul>
+			
+			If you'd like to change directory of these files, you can change it in "source/src/rotator/tools/ModuleLoader.js" and rebuild js files.
+		</p>	
+		
+		<hr>
+		
+		<h3 id="markup"><strong>E) Cute Slider Markup</strong> - <a href="#toc">top</a></h3>
+		
+		<p>The Cute slider markup is so clear and flexible. It starts with a single div element that determines slider location in your page dom structure. It contains two ul child elements, first ul element with data-type="slides" defines slider slides and the other one (data-type="controls") defines controls. </p>
+		
+		<pre class="brush: html">
+			
+		&lt;div id=&quot;my-cute-slider&quot; data-width=&quot;800&quot; data-height=&quot;350&quot; data-usethumb=&quot;false&quot; data-overpause='true' data-force=&quot;&quot;&gt;
+			&lt;ul data-type=&quot;slides&quot;&gt;
+				
+			&lt;/ul&gt;
+			&lt;ul data-type=&quot;controls&quot;&gt;			
+							
+			&lt;/ul&gt;
+		&lt;/div&gt;
+			</pre>
+		
+		
+		<p>Slider Parameters:</p>
+			
+		<ol>
+			<li>id: Determines a unique name for slider</li>
+			<li>data-width: Slide width</li>
+			<li>data-height: Slide height</li>
+			<li>data-overpause[optional]:  Indicates whether slideshow will pause on mouse over slides , default value "true"</li>
+			<li>data-force[optional]: With this parameter you can force slider to use specified method for rendering transitions. It can be one of these values:
+				<ul>
+					<li>"2d" Determines 2d transitions</li>
+					<li>"canvas" Determines canvas method for rendering 3D transitions [Note: It will not work in old browsers]</li>
+					<li>"css3d"  Determines CSS3 3D transform method for rendering 3D transitions [Note: It will not work in old browsers]</li>
+				</ul>	
+			</li>
+		</ol>
+	
+		<hr>
+		
+		<h3 id="adding-slide"><strong>F) Adding slide</strong> - <a href="#toc">top</a></h3>
+		
+		<p>Each slide must be added as an li element into ul element which has data-type="slides" attribute.</p>
+		
+		<pre class="brush: html">
+			
+		&lt;ul data-type=&quot;slides&quot;&gt;
+			&lt;li data-delay=&quot;4&quot; data-trans3d=&quot;tr28&quot; data-trans2d=&quot;tr1&quot;&gt;
+				&lt;img src=&quot;images/1.jpg&quot; data-thumb=&quot;images/thumbs/1.jpg&quot;/&gt;
+			&lt;/li&gt;
+			&lt;li data-delay=&quot;4&quot; data-trans3d=&quot;tr25&quot; data-trans2d=&quot;tr1 &quot;&gt;
+				&lt;img src=&quot;theme/blank.jpg&quot; data-src=&quot;images/2.jpg&quot; data-thumb=&quot;images/thumbs/2.jpg&quot;/&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+		</pre>
+		
+		<p>Slide parameters:</p>
+		<ol>
+			<li>data-delay: Determines how long slide will show in seconds</li>
+			<li>data-trans2d: Determines 2D transition(s)</li>
+			<li>data-trans3d: Determines 3D transition(s)</li>			
+		</ol>
+		
+		<p>
+			<span class="note">NOTE:</span> For defining transition you only need to use transition number. You need to add "tr" before the transition number for example "tr43" (You can find all of transitions with sample preview in transition gallery).
+		</p>
+		<p>
+			<span class="note">NOTE:</span> You can add multiple transitions for 2d or 3d slide transition, just use comma to seperate between transition names in sequence for example data-trans2d="tr1 , tr2". It will be randomly selected by slider.
+		</p>
+		
+		<hr>
+		
+		<h3 id="slide-contents"><strong>G) Slide Contents</strong> - <a href="#toc">top</a></h3>
+		
+		<p>Each slide content element, must be added in slide li element.</p>
+		
+		<pre class="brush: html">
+		&lt;li data-delay=&quot;4&quot; data-trans3d=&quot;tr28&quot; data-trans2d=&quot;tr1&quot;&gt;
+			&lt;img src=&quot;images/1.jpg&quot; data-thumb=&quot;images/thumbs/1.jpg&quot;/&gt;
+			&lt;p data-type=&quot;info&quot;&gt;
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+			&lt;/p&gt;
+		&lt;/li&gt;
+		</pre>
+		
+		<p>Contents:</p>
+		<ol>
+			<li>
+				<p>
+					<strong id="sc-image">Slide image</strong> <br /> 
+					Defines slide background image.
+					<pre class="brush: html">&lt;img src=&quot;images/1.jpg&quot; data-thumb=&quot;images/thumbs/1.jpg&quot;/&gt;</pre>
+					Parameters: <br />
+						<ul>
+							<li>data-src (src): Specifies the URL of slide image</li>
+							<li>data-thumb: Specifies the URL of slide thumb</li>
+						</ul><br />
+					<span class="important"> IMPORTANT:</span> It's important to use "src" instead of data-src for first slide.
+					
+				</p>
+			</li>
+			<li><p><strong id="sc-info">Slide info:</strong> <br />
+				To specify information content over slide, add your desired html markup in a p element with data-type="info" attribute. <br />
+				<pre class="brush: html">
+				&lt;p data-type=&quot;info&quot;&gt;
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+				&lt;/p&gt;
+				</pre>
+				Parameters: <br />
+				<ul>
+					<li>data-align[optional]: Determines alignment of slide info container, default value is bottom. <br />values: top , right , bottom , left</li>
+				</ul><br />
+			</p>
+			</li>
+			<li><p><strong id="sc-captions">Captions:</strong> <br />
+				For adding captions over slide, you need to create an ul element with data-type="captions" and put each captions in one li element.<br />
+				<pre class="brush: html">
+				&lt;ul data-type=&quot;captions&quot;&gt;
+					&lt;li class=&quot;caption1&quot; data-effect=&quot;fade&quot;&gt;
+						Lorem ipsum dolor sit amet.
+					&lt;/li&gt;
+					&lt;li class=&quot;caption2&quot; data-delay=&quot;500&quot; data-effect=&quot;slide&quot;&gt;
+						Ut wisi enim ad minim veniam.
+					&lt;/li&gt;
+				&lt;/ul&gt;
+				</pre>
+				Parameters: <br />
+				<ul>
+					<li>data-effect[optional]: Determines caption show effect, default value is fade. <br />values: fade , slide</li>
+					<li>data-delay[optional]: Determines how long delay befor showing caption in milliseconds.</li>
+				</ul><br />
+				CSS Styling:<br />
+					You can set your own style for each caption by specifying class name to caption li element.
+				<pre class="brush: css">
+.br-captions .br-caption-content {
+	background-color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding:8px;
+}
+
+	.br-captions .caption1 {
+		top:230px;
+		left:100px;
+		position:absolute;
+	}
+	
+	.br-captions .caption2 {
+		top:20px;
+		left:300px;
+		position:absolute;
+	}
+				</pre>
+				</p>	
+			</li>			
+			<li><p><strong id="sc-videos">Videos:</strong> <br />
+				Adds youtube or vimeo video over slide.<br />
+				<pre class="brush: html">
+					&lt;a data-type=&quot;video&quot; href=&quot;http://player.vimeo.com/video/1084537&quot; &gt; &lt;/a&gt;
+					</pre>
+				Note: its important to specify data-type="video" attribute to "a" element for defining it as a video.<br />
+				<br />Parameters: <br />
+				<ul>
+					<li>href: The URL of video (You can find video embed URL in it embed code)</li>
+				</ul><br />
+				CSS Styling:<br />
+					You can set your own style by specifying class name to "a" element
+				</p>	
+			</li>			
+			<li><p><strong id="sc-link">Link:</strong> <br />
+				Creates a link over slide.<br />
+				<pre class="brush: html">
+					&lt;a data-type=&quot;link&quot; href=&quot;http://www.google.com&quot; target=&quot;_blank&quot; &gt; &lt;/a&gt;</pre>
+				Note: It's important to specify data-type="link" attribute to "a" element for defining this as an anchor.<br />
+			</p>
+			</li>			
+		</ol>
+		
+		<hr>
+
+		<h3 id="controls"><strong>H) Controls</strong> - <a href="#toc">top</a></h3>
+		
+		<p>Each control must be added as an li element into ul element that has data-type="controls" attribute.</p>
+		<pre class="brush: html">
+			&lt;ul data-type=&quot;controls&quot;&gt;			
+				&lt;li data-type=&quot;captions&quot;&gt; &lt;/li&gt;
+				&lt;li data-type=&quot;link&quot;&gt; &lt;/li&gt;
+				&lt;li data-type=&quot;video&quot;&gt; &lt;/li&gt;
+				&lt;li data-type=&quot;slideinfo&quot;&gt; &lt;/li&gt;
+				&lt;li data-type=&quot;circletimer&quot;&gt; &lt;/li&gt;
+				&lt;li data-type=&quot;next&quot;&gt; &lt;/li&gt;
+				&lt;li data-type=&quot;previous&quot;&gt; &lt;/li&gt;
+				&lt;li data-type=&quot;slidecontrol&quot;&gt; &lt;/li&gt;
+				&lt;li data-type=&quot;bartimer&quot;&gt; &lt;/li&gt;				
+			&lt;/ul&gt;
+		</pre>
+		<strong>Controls:</strong>
+		
+		<ol>
+			<li>
+				<p>
+					<strong id="ct-captions">Captions</strong><br /> It's required if you want to use captions in your slider.<br />
+					<pre class="brush: html">&lt;li data-type=&quot;captions&quot;&gt; &lt;/li&gt;</pre>
+					CSS Styling:<br />
+					You can set custom class name to its li element. Default class name is "br-captions".<br /> But it's recommended to use custom class name in <a href="#sc-captions">slide content captions</a>.
+				</p>
+			</li>
+			<li>
+				<p>
+					<strong id="ct-link">Link</strong><br /> It's required if you want to use hyperlink over slide<br />
+					<pre class="brush: html">&lt;li data-type=&quot;link&quot;&gt; &lt;/li&gt;</pre>
+				</p>
+			</li>
+			<li>
+				<p>
+					<strong id="ct-video">Video</strong><br />Required if you want to use Youtube or Vimeo videos<br />
+					<pre class="brush: html">&lt;li data-type=&quot;video&quot;&gt; &lt;/li&gt;</pre>
+				</p>
+			</li>
+			<li>
+				<p>
+					<strong id="ct-info">Slide Info</strong><br />Required if you want to add html content over slide<br />
+					<pre class="brush: html">&lt;li data-type=&quot;slideinfo&quot;&gt; &lt;/li&gt;</pre>
+					CSS Styling:<br />
+					You can set custom class name to its li element. Default class name is "br-slideinfo".<br />
+					<pre class="brush: css">
+						.br-slideinfo .br-infocontent{
+							background: url("../theme/info-pat.png");
+							padding: 10px;
+							font-family: Arial, Helvetica, sans-serif;
+							font-size: 12px;
+							text-shadow: white 1px 1px;
+						}
+						
+							.br-slideinfo .right , .br-slideinfo .left{
+								width:150px;
+								height: 100%;
+							}
+					</pre>
+					slider determines .right, .left, .top or .bottom for this control according to its <a href="#sc-info">align parameter in slide content</a>.
+				</p>
+			</li>
+			<li>
+				<p>
+					<strong id="ct-ctimer">Circle Timer</strong><br />Adds Circle Timer control to your slider<br />
+					<pre class="brush: html">&lt;li data-type=&quot;circletimer&quot;&gt; &lt;/li&gt;</pre>
+					Note: This control only works in browsers that support canvas element<br />
+					<br />
+					Parameters:
+						<ul>
+							<li>data-color[optional]: Specifies circle stroke color</li>
+							<li>data-stroke [optional]: Specifies circle stroke</li>
+							<li>data-color[optional]: Specifies circle radius</li>
+						</ul>
+					<br />
+					CSS Styling:<br />
+					You can set custom class name to its li element. Default class name is "br-circle-timer".<br />					
+					<pre class="brush: css">
+						.br-circle-timer {
+							position:absolute;
+							top:-28px;
+							width:28px;
+							height:28px;
+						}
+						
+							.br-circle-timer .br-timer-dot {
+								width:11px;
+								height: 13px;
+								background: url("../theme/light-controls.png") -134px -15px;
+							}
+					</pre>
+				</p>
+			</li>
+			<li>
+				<p>
+					<strong id="ct-next">Next</strong><br />Adds Next button to your slider<br />
+					<pre class="brush: html">&lt;li data-type=&quot;next&quot;&gt; &lt;/li&gt;</pre>
+					CSS Styling:<br />
+					You can set custom class name to its li element. Default class name is "br-next".<br />					
+					<pre class="brush: css">
+						.br-next{
+							position:absolute;
+							right:-70px;
+							top:46%;
+							width: 35px;
+							height: 35px;
+							background: url("../theme/light-controls.png") -44px -4px;
+						}
+					</pre>
+				</p>
+			</li>
+			<li>
+				<p>
+					<strong id="ct-previous">Previous </strong><br />Adds Previous button to your slider<br />
+					<pre class="brush: html">&lt;li data-type=&quot;previous&quot;&gt; &lt;/li&gt;</pre>
+					CSS Styling:<br />
+					You can set custom class name to its li element. Default class name is "br-previous".<br />					
+					<pre class="brush: css">
+						.br-previous{
+							position:absolute;
+							left:-70px;
+							top:46%;
+							width: 35px;
+							height: 35px;
+							background: url("../theme/light-controls.png") -4px -4px;
+							
+						}
+					</pre>
+				</p>
+			</li>
+			<li>
+				<p>
+					<strong id="ct-control">Slide Control </strong><br />Adds Slide Control to your slider<br />
+					<pre class="brush: html">&lt;li data-type=&quot;slidecontrol&quot;&gt; &lt;/li&gt;</pre>
+					<br />
+					Parameters:
+						<ul>
+							<li>data-thumb[optional]: Indicates whether thumb will show on mouse over slide control points, default value "true"</li>
+							<li>data-thumbaling [optional]: Specifies that the thumb align to top or bottom</li>
+						</ul>
+					<br />
+					CSS Styling:<br />
+					You can set custom class name to its li element. Default class name is "br-slidecontrols".<br />					
+					<pre class="brush: css">
+						.br-slidecontrol{
+							position:absolute;
+							list-style: none;
+							top:-25px;
+							right:0px;
+							z-index:10;
+						}
+						
+							.br-slidecontrol ul li{
+								display: block;
+								position:relative;
+								margin:2px;
+								float:left;
+								width:14px;
+								height: 15px;
+								background: url("../theme/light-controls.png") -113px -14px;
+							}
+							
+							.br-slidecontrol ul li .br-control-selected{
+								display: block;
+								width:14px;
+								height: 15px;
+								background: url("../theme/light-controls.png") -92px -14px;
+							}
+						
+						
+						.br-thumb-bottom {
+							left: -36px;
+							position: relative;
+						}
+						
+						.br-thumb-up {
+							left: -36px;
+							top:-143px;
+							position: relative;
+						}
+						
+							.br-thumb-bottom .br-thumb-frame { 
+								background: url("../theme/thumb-frame.png") -0px -7px;
+								width: 92px;
+								height: 95px;
+							}
+							
+							.br-thumb-up .br-thumb-frame { 
+								background: url("../theme/thumb-frame.png") -89px 1px;
+								width: 92px;
+								height: 95px;
+							}
+							
+							.br-thumb-bottom .br-thumb-img , .br-thumb-up .br-thumb-img{ 
+								position:absolute;
+								top: 17px;
+								left: 15px;
+								width:60px;
+								height:60px;
+							}
+					</pre>
+				</p>
+			</li>
+			<li>
+				<p>
+					<strong id="ct-btimer">Bar timer  </strong><br />Adds Bar timer to your slider<br />
+					<pre class="brush: html">&lt;li data-type=&quot;bartimer&quot;&gt; &lt;/li&gt;</pre>
+					CSS Styling:<br />
+					You can set custom class name to its li element. Default class name is "br-bar-timer".<br />					
+					<pre class="brush: css">
+						.br-bar-timer{
+							height: 6px;
+							position:absolute;
+							bottom:0px;
+						}
+						
+							.br-bar-timer .br-timer-glow{
+							 	height: 7px;
+								background: url("../theme/light-timer-glow.png");
+								width: 104px;
+							}
+							 
+							.br-bar-timer .br-timer-bar{
+							 	height: 2px;
+								background-color: white;
+								position: absolute;
+								top: 4px;
+							}
+					</pre>
+				</p>
+			</li>
+		</ol>
+		<hr/>
+		
+		<h3 id="js-setup"><strong>I) JS Slider Setup</strong> - <a href="#toc">top</a></h3>
+		
+		<p>It's so simple you only need to create an new Cute.Slider object and run its setup method with cute slider id.<br />Example:<br />Add following at the end of body or in page onload event.<br />"my-cute-slider" is your slider id that defined in Cute slider markup.<br />"slider-wrapper" is your slider wrapper element id that determines slider width.</p>
+		<pre class="brush: html"> 
+		&lt;script&gt;
+			var myslider = new Cute.Slider();
+			myslider.setup(&quot;my-cute-slider&quot; , &quot;slider-wrapper&quot;);
+		&lt;/script&gt;
+		</pre>
+		<hr/>
+
+		<h3 id="js-api"><strong>J) Javascript API</strong> - <a href="#toc">top</a></h3>
+		
+		<p>Slider Events:<br />
+			<ul>
+				<li>Cute.SliderEvent.CHANGE_START: Dispatched when slide changing starts.</li>
+				<li>Cute.SliderEvent.CHANGE_END: Dispatched when slide changing ends.</li>
+				<li>Cute.SliderEvent.WATING: Dispatches as long as slider is standing in one slide.</li>
+				<li>Cute.SliderEvent.CHANGE_NEXT_SLIDE: Will Dispatche when next slide of slider changes.</li>
+				<li>Cute.SliderEvent.WATING_FOR_NEXT: Dispatches until slider is waiting for next slide loading.</li>
+			</ul>
+			You can use these events like following example:
+			<pre class="brush: javascript">
+				var slider = new Cute.Slider();
+				slider.setup("my-slider");
+				
+				this.change = function(event){
+					console.log(event.target , 'change started');
+				}
+				
+				slider.api.addEventListener(Cute.SliderEvent.CHANGE_START , this.change , this);
+			</pre>
+			
+			<br />
+			Slider API Methods:<br />
+			Note: You can access slider api object directly by "slider.api" and in event listener with "event.target".
+			<br />
+			<br />
+			<ol>
+				<li>next() : Goes to next slide.</li>
+				<li>previous() : Goes to previous slide.</li>
+				<li>pause() : Stops the slider timer.</li>
+				<li>play() : Starts the slider timer.</li>
+				<li>getNextIndex() : Returns the index of the next slide.</li>
+				<li>getPreviousIndex() : Returns the index of the previous slide.</li>
+				<li>gotoSlide(index , skipDelay) : Determines the next slide.<br />Parameters:<br />index: The next slide's index.<br />skipDelay: If skipDelay be true, slider skips the slide showing delay and shows next slide immediately.</li>
+				<li>getSlideList() : Returns an array of all slides.</li>
+				<li>getNextSlide() : Returns the next determined slide in slider.</li>
+				<li>getCurrentSlide() : Returns the current slide of slider.</li>
+				<li>getCurrentSlideIndex() : Returns the current slide index of slider.</li>
+				<li>delayProgress() : Returns a value that indicates how long is past from showing delay.</li>
+			</ol>
+			<br />
+			Slider Methos:<br />
+			<ol>
+				<li>play() : Starts slider timer.</li>
+				<li>pause() : Stops slider timer.</li>
+			</ol>
+		</p>
+		
+		<hr/>
+		<div class="averta"><a href="http://codecanyon.net/user/averta"><img src="assets/images/averta.gif"/></a></div>
+		<p>Once again, thank you so much for purchasing Cute slider.<br />If you like this item please rate it in your download page.<br />Here is our profile in codecanyon: <a href="http://codecanyon.net/user/averta">Averta</a></p> 
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+	<script type="text/javascript" src="syntax-highlighter/scripts/shCore.js"></script> 
+	<script type="text/javascript" src="syntax-highlighter/scripts/shBrushXml.js"></script> 
+	<script type="text/javascript" src="syntax-highlighter/scripts/shBrushCss.js"></script> 
+	<script type="text/javascript" src="syntax-highlighter/scripts/shBrushJScript.js"></script> 
+	<script type="text/javascript" src="syntax-highlighter/scripts/shBrushPhp.js"></script> 
+	<script type="text/javascript">
+     SyntaxHighlighter.all()
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Cute Slider</title>
+		
+	<script src="js/modernizr.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/cute/cute.slider.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/cute/cute.transitions.all.js" type="text/javascript" charset="utf-8"></script>
+	
+	<link rel="stylesheet" href="style/main.css" type="text/css" media="screen"  charset="utf-8"/>
+	<link rel="stylesheet" href="style/slider-style.css" type="text/css" media="screen"  charset="utf-8"/>
+	
+	<script src="js/respond.min.js" type="text/javascript" charset="utf-8"></script>
+	
+	<style>
+			/* -------------------------------------
+			 * Slider Style
+			 * ------------------------------------*/
+			 
+			.cute-slider{
+				position: relative;
+				margin-top:50px;
+			}
+			
+			.wrapper{
+				margin:0 auto;
+				width:400px;
+			}
+
+		</style>
+
+	</head>
+	<body>
+		<div id="wrapper" class="wrapper" >
+		<div id="my-cute-slider" class="cute-slider" data-width="400" data-height="250">
+			<ul data-type="slides">
+				<li data-delay="4" data-trans3d="tr2,tr18,tr43" data-trans2d="tr24,tr7,tr18">
+					<img src="images/s1.png" data-thumb="images/thumbs/1.png	"/>
+					<p data-type="info">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</p>
+				</li>
+				<li data-delay="4" data-trans3d="tr4,tr13,tr28" data-trans2d="tr16,tr15,tr4">
+					<img src="blank.jpg" data-src="images/s2.png" data-thumb="images/thumbs/2.png"/>
+				</li>
+				<li data-delay="4" data-trans3d="tr9,tr19,tr27" data-trans2d="tr9,tr20,tr22">
+					<img src="cute-theme/blank.jpg" data-src="images/s3.png" data-thumb="images/thumbs/3.png"/>
+				</li>
+				<li data-delay="4" data-trans3d="tr10,tr21,tr37" data-trans2d="tr21,tr17,tr14">
+					<img src="cute-theme/blank.jpg" data-src="images/s4.png" data-thumb="images/thumbs/4.png"/>
+					<p data-type="info" data-align="right">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</p>
+					<a data-type="link" href="http://www.google.com" target="_blank" > </a>.
+				</li>
+				<li data-delay="4" data-trans3d="tr11,tr25,tr16" data-trans2d="tr12,tr2,tr23">
+					<img src="cute-theme/blank.jpg" data-src="images/s5.png" data-thumb="images/thumbs/5.png"/>
+					<p data-type="info" data-align="left">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</p>
+				</li>
+				<li data-delay="4" data-trans3d="tr4,tr13,tr28" data-trans2d="tr16,tr15,tr4">
+					<img src="cute-theme/blank.jpg" data-src="images/s6.png" data-thumb="images/thumbs/6.png"/>
+				</li>
+				<li data-delay="4" data-trans3d="tr9,tr19,tr27" data-trans2d="tr9,tr20,tr22">
+					<img src="cute-theme/blank.jpg" data-src="images/s7.png" data-thumb="images/thumbs/7.png"/>
+				</li>
+			</ul>
+			<ul data-type="controls">			
+				<li data-type="captions"> </li>
+				<li data-type="link"> </li>
+				<li data-type="video"> </li>
+				<li data-type="slideinfo"> </li>
+				<li data-type="circletimer"> </li>
+				<li data-type="next"> </li>
+				<li data-type="previous"> </li>
+				<li data-type="slidecontrol"> </li>
+				<li data-type="bartimer"> </li>				
+			</ul>
+			<div class="br-small-shadow"> </div>
+		</div>
+		</div>
+		
+		<script>
+			var myslider = new Cute.Slider();
+			myslider.setup("my-cute-slider" , "wrapper");
+		</script>
+	</body>
+</html>

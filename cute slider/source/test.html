@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Cute Slider</title>
+		
+		<link rel="stylesheet" href="assets/style/main.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
+		<link rel="stylesheet" href="assets/style/slider-style.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
+		
+		<script src="assets/modernizr.js" type="text/javascript" charset="utf-8"></script>
+		<script src="build/cute.slider.js" type="text/javascript" charset="utf-8"></script>
+		<script src="build/cute.transitions.all.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
+		
+		<script>
+			Cute.ModuleLoader.css3d_files  =  ['build/cute.css3d.module.js'];
+			Cute.ModuleLoader.canvas_files =  ['build/cute.canvas.module.js'];
+			Cute.ModuleLoader.dom2d_files  =  ['build/cute.2d.module.js'];
+		</script>
+		
+		<style>
+			/* -------------------------------------
+			 * Slider Style
+			 * ------------------------------------*/
+			 
+			.cute-slider{
+				position: relative;
+				margin-top:50px;
+			}
+			
+			.wrapper{
+				width:100%;
+				margin:0 auto;
+				max-width:800px;
+				min-width:300px;
+			}
+
+		</style>
+		
+	</head>
+	<body>
+		<div id="wrapper" class="wrapper" >
+		<div id="slider" class="cute-slider" data-width="800" data-height="350" data-force="">
+			<ul data-type="slides">
+						<li data-delay="4" data-trans3d="tr2,tr20,tr57" data-trans2d="tr1,tr14,tr26">
+							<img src="images/1.png" data-thumb="images/thumbs/1.png"/>
+							<ul data-type="captions">
+								<li class="caption caption1" data-effect="fade">
+									3D &amp; 2D effects
+								</li>
+								<li class="caption caption2" data-delay="300" data-effect="fade">
+									+100 PRESET TRANSITIONS
+								</li>
+							</ul>
+						</li>
+						<li data-delay="4" data-trans3d="tr4,tr21,tr62" data-trans2d="tr5,tr23,tr30">
+							<img src="assets/cute-theme/blank.jpg" data-src="images/2.png" data-thumb="images/thumbs/2.png"/>
+							<ul data-type="captions">
+								<li class="caption caption3" data-effect="fade">
+									cross browser
+								</li>
+								<li class="caption caption4" data-delay="300" data-effect="fade">
+									DEVICE FRIENDLY
+								</li>
+							</ul>
+						</li>
+						<li data-delay="5" data-trans3d="tr17,tr46,tr64" data-trans2d="tr7,tr32,tr40">
+							<img src="assets/cute-theme/blank.jpg" data-src="images/3.png" data-thumb="images/thumbs/3.png"/>
+							<div data-type="info" class="info1">
+								<div>
+									<h1 class="title">Tired of boring flat sliders?</h1>
+									<p class="text">
+										<a class="more-btn" href="?p=features" target="_blank">More features</a>
+										Looking for a unique slider? Here's what you want, with Cute Slider you will be able to show your slides with awesome 3D &amp; 2D transitions.
+									</p>
+								</div>
+								
+							</div>
+						</li>
+						<li data-delay="4" data-trans3d="tr8,tr19" data-trans2d="tr15,tr3,tr38">
+							<img src="assets/cute-theme/blank.jpg" data-src="images/4.png" data-thumb="images/thumbs/4.png"/>
+							<ul data-type="captions">
+								<li class="caption caption5" data-effect="fade">
+									3 fallback levels
+								</li>
+								<li class="caption caption6" data-delay="300" data-effect="fade">
+									fully customizable
+								</li>
+							</ul>
+						</li>
+						<li data-delay="6" data-trans3d="tr10,tr49,tr58" data-trans2d="tr2,tr16,tr27">
+							<img src="assets/cute-theme/blank.jpg" data-src="images/5.png" data-thumb="images/thumbs/5.png"/>
+							<div data-type="info" data-align="right" class="info2">
+								<span class="title">TRANSITION GALLERY</span>
+								<span class="subtitle">INCLUDED</span>
+								<span class="text">
+									Cute Slider comes with extremely rich transition gallery that provides the best way to browse through 100+ transitions.
+								</span>
+								<a class="more-btn" href="?p=features" target="_blank">More features</a>
+							</div>
+						</li>
+						<li data-delay="4" data-trans3d="tr11,tr61,tr46" data-trans2d="tr12,tr24,tr35">
+							<img src="assets/cute-theme/blank.jpg" data-src="images/6.png" data-thumb="images/thumbs/6.png"/>
+							<ul data-type="captions">
+								<li class="caption caption7" data-effect="fade">
+									search engine optimized
+								</li>
+								<li class="caption caption8" data-delay="300" data-effect="fade">
+									OPTION TO SET LINK TO EACH SLIDE
+								</li>
+							</ul>
+						</li>
+						<li data-delay="7" data-trans3d="tr25,tr48,tr23" data-trans2d="tr29,tr20,tr41">
+							<img src="assets/cute-theme/blank.jpg" data-src="images/7.png" data-thumb="images/thumbs/7.png"/>
+							<ul data-type="captions">
+								<li class="caption caption9" data-effect="fade">
+									YOUTUBE &amp; VIMEO
+								</li>
+								<li class="caption caption10" data-delay="300" data-effect="fade">
+									videos are supported
+								</li>
+							</ul>
+							<a data-type="video" class="video" width="368" height="284" href="http://player.vimeo.com/video/8540978" > </a>
+						</li>
+					</ul>
+			<ul data-type="controls">			
+						
+						<li data-type="link"> </li>
+						
+						<li data-type="slideinfo"> </li>
+						<li data-type="video"> </li>
+						<li data-type="circletimer"> </li>
+						<li data-type="next"> </li>
+						<li data-type="previous"> </li>
+						<li data-type="slidecontrol"> </li>
+						<li data-type="bartimer"> </li>				
+					</ul>
+			<!--<div class="br-shadow"> </div>-->
+		</div>
+	</div>
+	
+		<script>
+			var slider = new Cute.Slider();
+			slider.setup("slider" , "wrapper");			
+		//	slider.pause();
+		
+		</script>
+	</body>
+</html>
